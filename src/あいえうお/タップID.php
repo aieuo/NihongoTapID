@@ -5,19 +5,21 @@ use pocketmine\event\Listener as リスナー;
 use pocketmine\plugin\PluginBase as プラグインベース;
 use pocketmine\event\player\PlayerInteractEvent as プレイヤーがブロックを触ったときのイベント;
 
-class タップID extends プラグインベース implements リスナー{
+class タップID extends プラグインベース implements リスナー {
 
     public function onEnable() {
         $this->getServer()->getPluginManager()->registerEvents($this,$this);
     }
 
     public function 触ったとき(プレイヤーがブロックを触ったときのイベント $イベント) {
-        $プレイヤー = $イベント->getPlayer();
+        $イベント = new イベント($イベント);
 
-        $ブロック = $イベント->getBlock();
-        $ブロックのID = $ブロック->getId();
-        $ブロックのメタ値 = $ブロック->getDamage();
+        $プレイヤー = new プレイヤー($イベント->プレイヤーを取得());
 
-        $プレイヤー->sendTip($ブロックのID.":".$ブロックのメタ値);
+        $ブロック = new ブロック($イベント->ブロックを取得());
+        $ブロックのID = $ブロック->IDを取得();
+        $ブロックのメタ値 = $ブロック->メタ値を取得();
+
+        $プレイヤー->Tip欄にメッセージ送信($ブロックのID.":".$ブロックのメタ値);
     }
 }
