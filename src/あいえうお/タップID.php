@@ -1,17 +1,17 @@
 <?php
 namespace あいえうお;
 
-use pocketmine\event\Listener;
-use pocketmine\plugin\PluginBase;
-use pocketmine\event\player\PlayerInteractEvent;
+use pocketmine\event\Listener as リスナー;
+use pocketmine\plugin\PluginBase as プラグインベース;
+use pocketmine\event\player\PlayerInteractEvent as プレイヤーがブロックを触ったときのイベント;
 
-class タップID extends PluginBase implements Listener{
+class タップID extends プラグインベース implements リスナー{
 
     public function onEnable() {
         $this->getServer()->getPluginManager()->registerEvents($this,$this);
     }
 
-    public function 触ったとき(PlayerInteractEvent $イベント) {
+    public function 触ったとき(プレイヤーがブロックを触ったときのイベント $イベント) {
         $プレイヤー = $イベント->getPlayer();
 
         $ブロック = $イベント->getBlock();
