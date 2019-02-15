@@ -1,0 +1,6 @@
+name: TapID
+main: あいえうお\タップID
+version: 0.1
+api: [3.0.0]
+load: POSTWORLD
+author: あいえうお
